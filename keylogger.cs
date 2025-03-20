@@ -1,129 +1,99 @@
 using System;
-using System.Net.NetworkInformation;
 
 namespace Keylogger {
     internal class Program {
         static void Main(string[] args) {
             int soundsAmount = int.Parse(Console.ReadLine());
             string[] outputMessage = new string[soundsAmount];
+
             bool shiftActive = false;
             int placeInArray = 0;
+
             for (int i = 0; i < soundsAmount; i++) {
                 switch (Console.ReadLine()) {
                     case "clank":
-                        outputMessage[placeInArray] = (shiftActive) ? "A" : "a";
-                        placeInArray++;
+                        Typer("a");
                         break;
                     case "bong":
-                        outputMessage[placeInArray] = (shiftActive) ? "B" : "b";
-                        placeInArray++;
+                        Typer("b");
                         break;
                     case "click":
-                        outputMessage[placeInArray] = (shiftActive) ? "C" : "c";
-                        placeInArray++;
+                        Typer("c");
                         break;
                     case "tap":
-                        outputMessage[placeInArray] = (shiftActive) ? "D" : "d";
-                        placeInArray++;
+                        Typer("d");
                         break;
                     case "poing":
-                        outputMessage[placeInArray] = (shiftActive) ? "E" : "e";
-                        placeInArray++;
+                        Typer("e");
                         break;
                     case "clonk":
-                        outputMessage[placeInArray] = (shiftActive) ? "F" : "f";
-                        placeInArray++;
+                        Typer("f");
                         break;
                     case "clack":
-                        outputMessage[placeInArray] = (shiftActive) ? "G" : "g";
-                        placeInArray++;
+                        Typer("g");
                         break;
                     case "ping":
-                        outputMessage[placeInArray] = (shiftActive) ? "H" : "h";
-                        placeInArray++;
+                        Typer("h");
                         break;
                     case "tip":
-                        outputMessage[placeInArray] = (shiftActive) ? "I" : "i";
-                        placeInArray++;
+                        Typer("i");
                         break;
                     case "cloing":
-                        outputMessage[placeInArray] = (shiftActive) ? "J" : "j";
-                        placeInArray++;
+                        Typer("j");
                         break;
                     case "tic":
-                        outputMessage[placeInArray] = (shiftActive) ? "K" : "k";
-                        placeInArray++;
+                        Typer("k");
                         break;
                     case "cling":
-                        outputMessage[placeInArray] = (shiftActive) ? "L" : "l";
-                        placeInArray++;
+                        Typer("l");
                         break;
                     case "bing":
-                        outputMessage[placeInArray] = (shiftActive) ? "M" : "m";
-                        placeInArray++;
+                        Typer("m");
                         break;
                     case "pong":
-                        outputMessage[placeInArray] = (shiftActive) ? "N" : "n";
-                        placeInArray++;
+                        Typer("n");
                         break;
                     case "clang":
-                        outputMessage[placeInArray] = (shiftActive) ? "O" : "o";
-                        placeInArray++;
+                        Typer("o");
                         break;
                     case "pang":
-                        outputMessage[placeInArray] = (shiftActive) ? "P" : "p";
-                        placeInArray++;
+                        Typer("p");
                         break;
                     case "clong":
-                        outputMessage[placeInArray] = (shiftActive) ? "Q" : "q";
-                        placeInArray++;
+                        Typer("q");
                         break;
                     case "tac":
-                        outputMessage[placeInArray] = (shiftActive) ? "R" : "r";
-                        placeInArray++;
+                        Typer("r");
                         break;
                     case "boing":
-                        outputMessage[placeInArray] = (shiftActive) ? "S" : "s";
-                        placeInArray++;
+                        Typer("s");
                         break;
                     case "boink":
-                        outputMessage[placeInArray] = (shiftActive) ? "T" : "t";
-                        placeInArray++;
+                        Typer("t");
                         break;
                     case "cloink":
-                        outputMessage[placeInArray] = (shiftActive) ? "U" : "u";
-                        placeInArray++;
+                        Typer("u");
                         break;
                     case "rattle":
-                        outputMessage[placeInArray] = (shiftActive) ? "V" : "v";
-                        placeInArray++;
+                        Typer("v");
                         break;
                     case "clock":
-                        outputMessage[placeInArray] = (shiftActive) ? "W" : "w";
-                        placeInArray++;
+                        Typer("w");
                         break;
                     case "toc":
-                        outputMessage[placeInArray] = (shiftActive) ? "X" : "x";
-                        placeInArray++;
+                        Typer("x");
                         break;
                     case "clink":
-                        outputMessage[placeInArray] = (shiftActive) ? "Y" : "y";
-                        placeInArray++;
+                        Typer("y");
                         break;
                     case "tuc":
-                        outputMessage[placeInArray] = (shiftActive) ? "Z" : "z";
-                        placeInArray++;
+                        Typer("z");
                         break;
                     case "whack":
-                        outputMessage[placeInArray] = (" ");
-                        placeInArray++;
+                        Typer(" ");
                         break;
                     case "bump":
-                        shiftActive = (shiftActive) ? false : true;
-                        break;
                     case "dink":
-                        shiftActive = (shiftActive) ? false : true;
-                        break;
                     case "thumb":
                         shiftActive = (shiftActive) ? false : true;
                         break;
@@ -135,8 +105,14 @@ namespace Keylogger {
                         break;
                 }
             }
+
             for (int i = 0; i < placeInArray; i++) {
                 Console.Write(outputMessage[i]);
+            }
+
+            void Typer(string l) {
+                outputMessage[placeInArray] = (shiftActive) ? l.ToUpper() : l;
+                placeInArray++;
             }
         }
     }
